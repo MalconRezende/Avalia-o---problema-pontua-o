@@ -6,8 +6,8 @@ int main()
 {
     double ComprarCliente, TicketMedio;
     double PagamentoAtraso;
-    string FormaDepagamento;
-    double ScoreDeCompra;
+    string FormaDepagamento, D, B, C;
+    double ScoreDeCompra, ScoreDeInadimplencia, ScoreFormadePagamento;
 
     ScoreDeCompra = 0;
 
@@ -46,7 +46,29 @@ int main()
         ScoreDeCompra = 60;
     }
 
-    cout <<endl<< "Score de volume de compras = " << ScoreDeCompra << " pontos";
+    cout <<endl<< "Score de volume de compras = " << ScoreDeCompra << " pontos"<<endl<<endl;
+
+    // INADUMPLENCIA E PAGAMENTO
+
+    if (PagamentoAtraso > 0 || ScoreDeCompra == 0){
+        ScoreDeInadimplencia = 0;
+    }
+    if (PagamentoAtraso = 1 && ScoreDeCompra > 0){
+        ScoreDeInadimplencia = 15;
+    }
+    if (PagamentoAtraso = 0 && ScoreDeCompra > 0){
+        ScoreDeInadimplencia = 30;
+    }
+
+    if (FormaDepagamento == "D" && ScoreDeCompra > 0){
+        ScoreFormadePagamento = 5;
+    }
+    if ((FormaDepagamento == "C" || FormaDepagamento == "B")&& ScoreDeCompra > 0){
+        ScoreFormadePagamento = 10;
+    }
+
+    cout << "Score de inadimplencia = " << ScoreDeInadimplencia << " pontos" <<endl;
+    cout << "Score de forma de pagamento = " << ScoreFormadePagamento << " pontos";
 
     return 0;
 }
