@@ -6,8 +6,8 @@ int main()
 {
     double ComprarCliente, TicketMedio;
     double PagamentoAtraso;
-    string FormaDepagamento, D, B, C;
-    double ScoreDeCompra, ScoreDeInadimplencia, ScoreFormadePagamento;
+    string FormaDepagamento, D, B, C, ScoreTotal;
+    double ScoreDeCompra, ScoreDeInadimplencia, ScoreFormadePagamento, ScorePontuacao;
 
     ScoreDeCompra = 0;
 
@@ -68,7 +68,23 @@ int main()
     }
 
     cout << "Score de inadimplencia = " << ScoreDeInadimplencia << " pontos" <<endl;
-    cout << "Score de forma de pagamento = " << ScoreFormadePagamento << " pontos";
+    cout << "Score de forma de pagamento = " << ScoreFormadePagamento << " pontos" <<endl;
+
+    //CLASSIFICACAO FINAL
+
+    ScorePontuacao = ScoreDeInadimplencia + ScoreFormadePagamento + ScoreDeCompra;
+
+    if (0 < ScorePontuacao < 25){
+        ScoreTotal = "CLIENTE BRONZE";
+    }
+    if (25 < ScorePontuacao < 75){
+        ScoreTotal = "CLIENTE PRATA";
+    }
+    if (ScorePontuacao > 75){
+        ScoreTotal = "CLIENTE OURO";
+    }
+
+    cout <<endl<< "Classificacao final = " << ScoreTotal <<endl;
 
     return 0;
 }
